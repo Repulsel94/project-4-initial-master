@@ -16,71 +16,71 @@ public class GentlyDownTheStream {
         fruits = Arrays.asList("Apple", "Orange", "Banana", "Pear", "Peach", "Tomato");
         veggies = Arrays.asList("Corn", "Potato", "Carrot", "Pea", "Tomato");
         integerValues = new Random().ints(0, 1001)
-                                    .boxed()
-                                    .limit(1000)
-                                    .collect(Collectors.toList());
+                .boxed()
+                .limit(1000)
+                .collect(Collectors.toList());
     }
 
     // return a list of sorted fruits based on the fruits list
     public List<String> sortedFruits() {
         return fruits.stream()
-                     .sorted()
-                     .collect(Collectors.toList());
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     // return a list of sorted fruits with all fruits filtered out that start with "A"
     public List<String> sortedFruitsException() {
         return fruits.stream()
-                     .filter(x -> !x.startsWith("A"))
-                     .sorted()
-                     .collect(Collectors.toList());
+                .filter(x -> !x.startsWith("A"))
+                .sorted()
+                .collect(Collectors.toList());
     }
 
     // return a list with the first 2 elements of a sorted list of fruits
     public List<String> sortedFruitsFirstTwo() {
         return fruits.stream()
-                     .sorted()
-                     .limit(2)
-                     .collect(Collectors.toList());
+                .sorted()
+                .limit(2)
+                .collect(Collectors.toList());
     }
 
     // return a comma separated String of sorted fruits
     public String commaSeparatedListOfFruits() {
         return fruits.stream()
-                     .sorted()
-                     .collect(Collectors.joining(", "));
+                .sorted()
+                .collect(Collectors.joining(", "));
     }
 
     // return a list of veggies that are sorted in reverse (descending) order
     public List<String> reverseSortedVeggies() {
         return veggies.stream()
-                      .sorted(Comparator.reverseOrder())
-                      .collect(Collectors.toList());
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
     }
 
     // return a list of veggies that are sorted in reverse order, and all in upper case
     public List<String> reverseSortedVeggiesInUpperCase() {
         return veggies.stream()
-                      .sorted(Comparator.reverseOrder())
-                      .map(v -> v.toUpperCase(Locale.ROOT))
-                      .collect(Collectors.toList());
+                .sorted(Comparator.reverseOrder())
+                .map(v -> v.toUpperCase(Locale.ROOT))
+                .collect(Collectors.toList());
     }
 
     // return a list of the top 10 values in the list of random integers
     public List<Integer> topTen() {
         return integerValues.stream()
-                            .sorted(Comparator.reverseOrder())
-                            .limit(10)
-                            .collect(Collectors.toList());
+                .sorted(Comparator.reverseOrder())
+                .limit(10)
+                .collect(Collectors.toList());
     }
 
     // return a list of the top 10 unique values in the list of random integers
     public List<Integer> topTenUnique() {
         return integerValues.stream()
-                            .sorted(Comparator.reverseOrder())
-                            .distinct()
-                            .limit(10)
-                            .collect(Collectors.toList());
+                .sorted(Comparator.reverseOrder())
+                .distinct()
+                .limit(10)
+                .collect(Collectors.toList());
     }
 
     // return a list of the top 10 unique values in the list of random integers that are odd
